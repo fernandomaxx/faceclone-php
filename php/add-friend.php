@@ -12,7 +12,7 @@
 	$objDb = new db();
 	$link = $objDb->conecta_mysql();
 
-	if ($option != "accept") {
+	if ($option == "accept") {
 		$sql = " SELECT email FROM pessoa WHERE nickname = '$_nickname'";
 		$result = mysqli_query($link, $sql);
 		$data = mysqli_fetch_array($result);
@@ -29,6 +29,6 @@
 	$sql = "DELETE 	FROM solicitaamizade WHERE 	fk_nicknameSolicitaAmizade = '$_nickname' and fk_nickname = '$nickname'";
 	mysqli_query($link, $sql);
 
-	//header('Location: ../home.php?nick='.$_SESSION['user_validated']);
+	header('Location: ../home.php?nick='.$_SESSION['user_validated']);
 
 ?>

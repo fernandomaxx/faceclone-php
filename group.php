@@ -53,11 +53,11 @@
         </div>
         <!-- ./profile brief -->
 
-        <!-- friend requests -->
+        <!-- groups -->
 
         <div class="panel panel-default">
           <div class="panel-body">
-            <h4>friend requests</h4>
+            <h4>groups</h4>
             <?php
               $aux = $_SESSION['user_validated'];
               $sql = "SELECT * FROM solicitaamizade where fk_nickname = '$aux' ORDER BY fk_nicknameSolicitaAmizade";
@@ -83,7 +83,7 @@
           ?>
           </div>
         </div>
-        <!-- ./friend requests -->
+        <!-- ./groups -->
       </div>
       <div class="col-md-6">
         <!-- post form -->
@@ -136,10 +136,10 @@
         <!-- ./feed -->
       </div>
       <div class="col-md-3">
-      <!-- add friend -->
+      <!-- add group -->
         <div class="panel panel-default">
           <div class="panel-body">
-            <h4>add friend</h4>
+            <h4>add group</h4>
             <?php
               //$nickname = $_SESSION['feedatual'];
               $sql = "SELECT nickname FROM pessoa ORDER BY nickname";
@@ -165,7 +165,7 @@
           ?>
           </div>
         </div>
-        <!-- ./add friend -->
+        <!-- ./add group -->
 
         <!-- friends -->
         <div class="panel panel-default">
@@ -183,7 +183,7 @@
                   <a <?php echo 'href="home.php?nick='.$fc_user['fk_nicknameAmizade'].'';?>">
                     <?php echo $fc_user['fk_nicknameAmizade']; ?>
                   </a>  
-                  <a class="text-danger" <?php echo 'href="php/block.php?nick='.$fc_user['fk_nicknameAmizade'].'"';?>>[unfriend]</a>
+                  <a class="text-danger" href="#">[unfriend]</a>
                 </li>
               <?php
               }
