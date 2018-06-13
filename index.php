@@ -26,7 +26,7 @@
         <h4>Login to start enjoying unlimited fun!</h4>
 
         <!-- login form -->
-        <form method="post" action="-login.php">
+        <form method="post" action="php/login.php">
           <div class="form-group">
             <input class="form-control" type="text" name="email" placeholder="Email">
           </div>
@@ -45,7 +45,7 @@
         <h4>Don't have an account yet? Register!</h4>
 
         <!-- register form -->
-        <form method="post" action="-register.php">
+        <form method="post" action="/php/register.php">
 
           <div class="form-group">
             <input class="form-control" type="text" name="username" placeholder="Username">

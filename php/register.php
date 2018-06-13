@@ -1,6 +1,6 @@
 <?php
 
-	require_once('db.class.php');
+	require_once('../db.class.php');
 
 	$username = $_POST['username'];
 	$nickname = $_POST['nickname'];
@@ -25,7 +25,7 @@
 
 	if(mysqli_query($link, $sql1)){
 		echo 'mural registrado com sucesso!';
-		header("Location: index.php");
+		header("Location: ../index.php");
 	} else {
 		echo 'Erro ao registrar o mural!';
 	}

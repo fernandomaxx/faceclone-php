@@ -1,7 +1,7 @@
 <?php
 	session_start();
 
-	require_once('db.class.php');
+	require_once('../db.class.php');
 
 	$_nickname = $_GET['uid'];
 	$nickname = $_SESSION['user_validated'];
@@ -19,7 +19,7 @@
 
 	if(mysqli_query($link, $sql)){
 		echo 'solicitação enviada com sucesso!';
-		header("Location: home.php?nick=".$nickname);
+		header("Location: ../home.php?nick=".$nickname);
 	} else {
 		echo 'Erro ao registrar o mural!';
 	}

@@ -33,7 +33,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="home.html">Home</a></li>
         <li><a href="profile.html">Profile</a></li>
-        <li><a href="-logout.php">Logout</a></li>
+        <li><a href="php/logout.php">Logout</a></li>
       </ul>
     </div>
   </nav>
@@ -58,7 +58,8 @@
           <div class="panel-body">
             <h4>friend requests</h4>
             <?php
-              $sql = "SELECT * FROM solicitaamizade where fk_nickname = 'bia'";
+              $aux = $_SESSION['user_validated'];
+              $sql = "SELECT * FROM solicitaamizade where fk_nickname = '$aux'";
               $result = mysqli_query($link, $sql);
               if ($result) {
              ?><ul><?php
@@ -67,8 +68,8 @@
                 <li>
                   <a href="#"><?php echo $solicit_user['fk_nicknameSolicitaAmizade']; ?></a> 
                   <br>
-                  <a class="text-success" href="#">[accept]</a> 
-                  <a class="text-danger" href="#">[decline]</a>
+                  <a class="text-success" <?php echo 'href="php/add-friend.php?nick='.$solicit_user['fk_nicknameSolicitaAmizade'].'&log=accept"'; ?>>[accept]</a> 
+                  <a class="text-danger" <?php echo 'href="php/add-friend.php?nick='.$solicit_user['fk_nicknameSolicitaAmizade'].'&log=decline"'; ?>>[decline]</a>
                 </li>
               <?php
               } 
@@ -85,7 +86,7 @@
       </div>
       <div class="col-md-6">
         <!-- post form -->
-        <form method="post" action="-create-post.php">
+        <form method="post" action="php/create-post.php">
           <div class="input-group">
             <input class="form-control" type="text" name="content" placeholder="Make a post...">
             <span class="input-group-btn">
@@ -150,7 +151,7 @@
                   <a <?php echo 'href="home.php?nick='.$fc_user['nickname'].'';?>">
                     <?php echo $fc_user['nickname']; ?>
                   </a> 
-                  <a <?php echo 'href="-solicitacion-friend.php?uid='.$fc_user['nickname'].''; ?>">[add]</a>
+                  <a <?php echo 'href="php/solicitacion-friend.php?uid='.$fc_user['nickname'].''; ?>">[add]</a>
                 </li>
               <?php
               }

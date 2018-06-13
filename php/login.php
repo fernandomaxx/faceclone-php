@@ -2,7 +2,7 @@
 
 	session_start();
 
-	require_once('db.class.php');
+	require_once('../db.class.php');
 
 	$email = $_POST['email'];
 	$password = $_POST['password'];
@@ -24,10 +24,10 @@
 			$_SESSION['username'] = $dados_usuario['nome'];
 			$_SESSION['nickname'] = $dados_usuario['nickname'];
 			
-			header('Location: home.php?nick='.$_SESSION['nickname']);
+			header('Location: ../home.php?nick='.$_SESSION['nickname']);
 
 		} else {
-			header('Location: index.php?erro=1');
+			header('Location: ../index.php?erro=1');
 		}
 	} else {
 		echo 'Erro na execução da consulta, favor entrar em contato com o admin do site';

@@ -6,7 +6,7 @@
 	//	header('Location: index.php?erro=1');
 	//}
 
-	require_once('db.class.php');
+	require_once('../db.class.php');
 
 	$content = $_POST['content'];
 	$nickname = $_SESSION['feed'];
@@ -34,6 +34,6 @@
 
 	mysqli_query($link, $sql1);
 
-	header('Location: home.php?nick='.$_SESSION['feed']);
+	header('Location: ../home.php?nick='.$_SESSION['feed']);
 
 ?>
