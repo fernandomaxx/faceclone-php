@@ -11,7 +11,9 @@
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="index.html">FaceClone</a>
+        <div class="navbar-brand">
+        <img src="img/faceLogo.png" style="width: 160px; height: 50px; margin-top:-15px;">
+        </div>
       </div>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="home.html">Home</a></li>

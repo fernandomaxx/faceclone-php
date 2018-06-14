@@ -11,7 +11,9 @@
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="index.html">FaceClone</a>
+        <div class="navbar-brand">
+        <img src="img/faceLogo.png" style="width: 160px; height: 50px; margin-top:-15px;">
+        </div>
       </div>
     </div>
   </nav>
@@ -19,11 +21,13 @@
 
   <!-- main -->
   <main class="container">
-  <h1 class="text-center">Welcome to FaceClone! <br><small>A simple Facebook clone.</small></h1>
+  <h1 class="text-center">Bem-Vindo ao FaCIbok!<br><small>O Facebook do CI</small></h1>
 
     <div class="row">
       <div class="col-md-6">
-        <h4>Login to start enjoying unlimited fun!</h4>
+        <br><br>
+        <img src="img/ciufpb.png" style="width: 469px; height: 323px; margin-top: -75px;" >
+        <h4>Faça o login</h4>
 
         <!-- login form -->
         <form method="post" action="php/login.php">
@@ -32,7 +36,7 @@
           </div>
 
           <div class="form-group">
-            <input class="form-control" type="password" name="password" placeholder="Password">
+            <input class="form-control" type="password" name="password" placeholder="Senha">
           </div>
 
           <div class="form-group">
@@ -42,13 +46,13 @@
         <!-- ./login form -->
       </div>
       <div class="col-md-6">
-        <h4>Don't have an account yet? Register!</h4>
+        <h4>Não tem Conta? Registre-se!</h4>
 
         <!-- register form -->
         <form method="post" action="php/register.php">
 
           <div class="form-group">
-            <input class="form-control" type="text" name="username" placeholder="Username">
+            <input class="form-control" type="text" name="username" placeholder="Nome">
           </div>
 
           <div class="form-group">
@@ -60,7 +64,7 @@
           </div>
 
           <div class="form-group">
-            <input class="form-control" type="password" name="password" placeholder="Password">
+            <input class="form-control" type="password" name="password" placeholder="Senha">
           </div>
 
           <div class="radio">
@@ -92,7 +96,7 @@
   <!-- footer -->
   <footer class="container text-center">
     <ul class="nav nav-pills pull-right">
-      <li>FaceClone - Made by [your name here]</li>
+      <li></li>
     </ul>
   </footer>
   <!-- ./footer -->
