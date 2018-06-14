@@ -25,4 +25,8 @@
   $sql = " INSERT into administragrupo(fk_emailAdm, fk_nicknameAdm, fk_idGrupo) values ('$email', '$nickname', '$idgroup') ";
   mysqli_query($link, $sql);
 
+  $sql1 = "insert into mural(fk_idGrupo) values ('$idgroup') ";
+
+  mysqli_query($link, $sql1);
+
   header('Location: ../home.php?nick='.$_SESSION['user_validated']);

@@ -8,11 +8,12 @@
     header('Location: index.php?erro=1');
   }
 
-  $_SESSION['feed'] = $_GET['nick'];
-  echo $_SESSION['feed'];
+  $_SESSION['namegroup'] = $_GET['namegroup'];
+  echo $_SESSION['namegroup'];
   $_SESSION['user_validated'] = $_SESSION['nickname'];
   echo $_SESSION['user_validated'];
   $_SESSION['email_validated'] = $_SESSION['email'];
+  $autorized = "true";
 ?>
 
 <!DOCTYPE html>
@@ -31,8 +32,9 @@
         <a class="navbar-brand" href="index.html">FaceClone</a>
       </div>
       <ul class="nav navbar-nav navbar-right">
+        <li><a href="register-group.php">Edit group</a></li>
         <li><a href="group.php">Group</a></li>
-        <li><a href="home.php">Home</a></li>
+        <li><a <?php echo 'href="home.php?nick='.$_SESSION['user_validated'].'"';?>>Home</a></li>
         <li><a href="profile.html">Profile</a></li>
         <li><a href="php/logout.php">Logout</a></li>
       </ul>
@@ -70,7 +72,7 @@
                 $namegroup = mysqli_fetch_array($resultname, MYSQLI_ASSOC);
               ?>
                 <li>
-                  <a href="#"><?php echo $namegroup['nomeGrupo']; ?> (admin) </a> 
+                  <a <?php echo 'href="group.php?namegroup='.$namegroup['nomeGrupo'].'"';?>><?php echo $namegroup['nomeGrupo']; ?> (admin) </a> 
                   <br>
                   <!--a class="text-success" <?php echo 'href="php/add-friend.php?nick='.$namegroup['nomeGrupo'].'&log=accept"'; ?>>[accept]</a> 
                   <a class="text-danger" <?php echo 'href="php/add-friend.php?nick='.$namegroup['nomeGrupo'].'&log=decline"'; ?>>[decline]</a-->
@@ -90,7 +92,10 @@
       </div>
       <div class="col-md-6">
         <!-- post form -->
-        <form method="post" action="php/create-post.php">
+        <?php
+          if ($autorized) {
+        ?>
+        <form method="post" action="php/create-group-post.php">
           <div class="input-group">
             <input class="form-control" type="text" name="content" placeholder="Make a post...">
             <span class="input-group-btn">
@@ -98,14 +103,20 @@
             </span>
           </div>
         </form><hr>
+        <?php } ?>
         <!-- ./post form -->
 
         <!-- feed -->
         <div>
           <!-- post -->
           <?php
-          $nickname = $_SESSION['feed']; 
-          $sql1 = "SELECT idMural FROM mural WHERE fk_nickname = '$nickname' ";
+          $nickname = $_SESSION['namegroup']; 
+          $sql = " SELECT idGrupo FROM grupo WHERE nomeGrupo = '$nickname'";
+          $link = $objDb->conecta_mysql();
+          $result = mysqli_query($link, $sql);
+          $data = mysqli_fetch_array($result);
+          $idgroup = $data['idGrupo'];
+          $sql1 = "SELECT idMural FROM mural WHERE fk_idGrupo = '$idgroup' ";
           $result = mysqli_query($link, $sql1);
           $data = mysqli_fetch_array($result);
           $idFeed = $data['idMural'];
@@ -155,7 +166,7 @@
                   <a <?php echo 'href="home.php?nick='.$fc_user['nomeGrupo'].'';?>">
                     <?php echo $fc_user['nomeGrupo']; ?>
                   </a> 
-                  <a <?php echo 'href="php/solicitacion-friend.php?uid='.$fc_user['nomeGrupo'].''; ?>">[add]</a>
+                  <a <?php echo 'href="php/solicitacion-group.php?uid='.$fc_user['nomeGrupo'].''; ?>">[add]</a>
                 </li>
               <?php
               }

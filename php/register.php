@@ -8,11 +8,12 @@
 	$password = $_POST['password'];
 	$sex = $_POST['sex'];
 	$date = $_POST['date'];
+	$date = date("Y-m-d",strtotime(str_replace('/','-',$date)));
 
 	$objDb = new db();
 	$link = $objDb->conecta_mysql();
 
-	$sql = " insert into pessoa(nome, email, senha, sexo, dataNascimento, nickname) values ('$username', '$email', '$password', $sex, $date, '$nickname') ";
+	$sql = " insert into pessoa(nome, email, senha, sexo, dataNascimento, nickname) values ('$username', '$email', '$password', $sex, '$date', '$nickname') ";
 	echo $sql;
 	//executar a query
 	if(mysqli_query($link, $sql)){

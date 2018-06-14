@@ -31,9 +31,9 @@
         <a class="navbar-brand" href="index.html">FaceClone</a>
       </div>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="register-group.php">Create group</a></li>
+        <li><a href="register-group.php">Edit group</a></li>
         <li><a href="group.php">Group</a></li>
-        <li><a href="home.php">Home</a></li>
+        <li><a <?php echo 'href="home.php?nick='.$_SESSION['user_validated'].'"';?>>Home</a></li>
         <li><a href="profile.html">Profile</a></li>
         <li><a href="php/logout.php">Logout</a></li>
       </ul>
