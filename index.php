@@ -45,7 +45,7 @@
         <h4>Don't have an account yet? Register!</h4>
 
         <!-- register form -->
-        <form method="post" action="/php/register.php">
+        <form method="post" action="php/register.php">
 
           <div class="form-group">
             <input class="form-control" type="text" name="username" placeholder="Username">
