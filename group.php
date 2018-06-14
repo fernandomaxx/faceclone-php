@@ -60,17 +60,20 @@
             <h4>groups</h4>
             <?php
               $aux = $_SESSION['user_validated'];
-              $sql = "SELECT * FROM solicitaamizade where fk_nickname = '$aux' ORDER BY fk_nicknameSolicitaAmizade";
+              $sql = "SELECT * FROM administragrupo where fk_nicknameAdm = '$aux' ORDER BY fk_nicknameAdm";
               $result = mysqli_query($link, $sql);
               if ($result) {
              ?><ul><?php
-              while($solicit_user = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+              while($idgroup = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+                $sql = "SELECT nomeGrupo FROM grupo where idGrupo = ".$idgroup['fk_idGrupo'];
+                $resultname = mysqli_query($link, $sql);
+                $namegroup = mysqli_fetch_array($resultname, MYSQLI_ASSOC);
               ?>
                 <li>
-                  <a href="#"><?php echo $solicit_user['fk_nicknameSolicitaAmizade']; ?></a> 
+                  <a href="#"><?php echo $namegroup['nomeGrupo']; ?> (admin) </a> 
                   <br>
-                  <a class="text-success" <?php echo 'href="php/add-friend.php?nick='.$solicit_user['fk_nicknameSolicitaAmizade'].'&log=accept"'; ?>>[accept]</a> 
-                  <a class="text-danger" <?php echo 'href="php/add-friend.php?nick='.$solicit_user['fk_nicknameSolicitaAmizade'].'&log=decline"'; ?>>[decline]</a>
+                  <!--a class="text-success" <?php echo 'href="php/add-friend.php?nick='.$namegroup['nomeGrupo'].'&log=accept"'; ?>>[accept]</a> 
+                  <a class="text-danger" <?php echo 'href="php/add-friend.php?nick='.$namegroup['nomeGrupo'].'&log=decline"'; ?>>[decline]</a-->
                 </li>
               <?php
               } 
@@ -142,17 +145,17 @@
             <h4>add group</h4>
             <?php
               //$nickname = $_SESSION['feedatual'];
-              $sql = "SELECT nickname FROM pessoa ORDER BY nickname";
+              $sql = "SELECT nomeGrupo FROM grupo ORDER BY nomeGrupo";
               $result = mysqli_query($link, $sql);
               if ($result) {
              ?><ul><?php
               while($fc_user = mysqli_fetch_array($result, MYSQLI_ASSOC)){
               ?>
                 <li>
-                  <a <?php echo 'href="home.php?nick='.$fc_user['nickname'].'';?>">
-                    <?php echo $fc_user['nickname']; ?>
+                  <a <?php echo 'href="home.php?nick='.$fc_user['nomeGrupo'].'';?>">
+                    <?php echo $fc_user['nomeGrupo']; ?>
                   </a> 
-                  <a <?php echo 'href="php/solicitacion-friend.php?uid='.$fc_user['nickname'].''; ?>">[add]</a>
+                  <a <?php echo 'href="php/solicitacion-friend.php?uid='.$fc_user['nomeGrupo'].''; ?>">[add]</a>
                 </li>
               <?php
               }
