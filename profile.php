@@ -11,7 +11,7 @@
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="index.html">FaceClone</a>
+        <a class="navbar-brand" href="index.html">FaceC</a>
       </div>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="home.html">Home</a></li>

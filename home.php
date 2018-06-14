@@ -28,7 +28,9 @@
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="index.html">FaceClone</a>
+        <div class="navbar-brand">
+        <img src="img/faceLogo.png" style="width: 160px; height: 50px; margin-top:-15px;">
+        </div>
       </div>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="register-group.php">Edit group</a></li>
@@ -118,6 +120,71 @@
                 <div class="panel panel-default">
                   <div class="panel-body">
                     <p><?php echo $post['texto']; ?></p>
+
+                      
+                    <hr>
+                      <div> <!--DIV PRINCIPAL COMENTARIO-->
+                <div col-md-2 class="input-group"> <!--Comentario-->
+                  <input type="text" placeholder="Digite aqui seu comentário..." class="form-control">
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" id="botao_coment">Comentar</button>
+                  </span>
+                </div>
+                <hr>
+
+
+                <div col-md-2> 
+                  <ul class="list-group">
+                    
+                    <!--Comentario-->
+                    <li class="list-group-item">
+                       <div col-md-2 >
+                     
+                        
+                         <label>dsajkdasda</label><br> <!--Nome do usuario que comentou-->
+                           <div style="margin-left: 22px;">
+                           Comentário
+                           </div>
+                       </div>
+                         <hr>
+                          
+                          <!--Resposta do Comentario-->
+                          <div col-md-2 style="margin-left: 40px;">
+                            
+                            <label>dsadasdsadas</label><br> <!--Nome do usuario que respondeu o comentário-->
+                                <div style="margin-left: 19px;">
+                                Reposta Comentário             
+                                </div>                
+                          </div>
+                        
+                          <hr>
+
+                          <!--Input para resposta do comentario-->
+                        <div col-md-2> <!--Resposta do comentario-->
+                           <div col-md-2 class="input-group"> <!--Botão dentro do texto-->
+                              <input type="text" placeholder="Digite uma resposta para o comentário..." class="form-control">
+                            <span class="input-group-btn">
+                              <button type="button" class="btn btn-default" id="botao_coment_resp">Comentar</button>
+                            </span>
+                          </div>
+
+                        </div>
+
+
+                    </li>
+                  </ul>
+                  
+                </div>
+                <!--fim coment sem list-group-->
+              </div><!--FINAL DIV PRINCIPAL COMENTA-->  
+
+
+
+
+
+
+
+
                   </div>
                   <div class="panel-footer">
                     <span>posted 2017-5-27 20:45:01 by <?php echo $post['nome']; ?></span> 
