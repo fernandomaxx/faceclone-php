@@ -68,8 +68,8 @@
                 <li>
                   <a href="#"><?php echo $data_user['fk_nickname']; echo " (".$data_group['nomeGrupo'].")"?></a> 
                   <br>
-                  <a class="text-success" <?php echo 'href="php/add-friend.php?nick='.$data_user['fk_nickname'].'&log=accept"'; ?>>[accept]</a> 
-                  <a class="text-danger" <?php echo 'href="php/add-friend.php?nick='.$data_user['fk_nickname'].'&log=decline"'; ?>>[decline]</a>
+                  <a class="text-success" <?php echo 'href="php/add-group.php?nick='.$data_user['fk_nickname'].'&email='.$data_user['fk_email'].'&idgroup='.$data_user['fk_idGrupo'].'&log=accept"'; ?>>[accept]</a> 
+                  <a class="text-danger" <?php echo 'href="php/add-group.php?nick='.$data_user['fk_nickname'].'&email='.$data_user['fk_email'].'&idgroup='.$data_user['fk_idGrupo'].'&log=decline"'; ?>>[decline]</a>
                 </li>
               <?php
                 }

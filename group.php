@@ -92,9 +92,7 @@
       </div>
       <div class="col-md-6">
         <!-- post form -->
-        <?php
-          if ($autorized) {
-        ?>
+
         <form method="post" action="php/create-group-post.php">
           <div class="input-group">
             <input class="form-control" type="text" name="content" placeholder="Make a post...">
@@ -103,7 +101,6 @@
             </span>
           </div>
         </form><hr>
-        <?php } ?>
         <!-- ./post form -->
 
         <!-- feed -->
@@ -186,22 +183,41 @@
           <div class="panel-body">
             <h4>friends</h4>
             <?php
-              $nickname = $_SESSION['feed'];
-              $sql = "SELECT fk_nicknameAmizade FROM amizade WHERE fk_nickname = '$nickname' ORDER BY fk_nicknameAmizade";
+              $namegroup = $_SESSION['namegroup'];
+              $sql = "SELECT idGrupo FROM grupo WHERE nomeGrupo = '$namegroup'";
               $result = mysqli_query($link, $sql);
+              $idgroup = mysqli_fetch_array($result, MYSQLI_ASSOC);
               if ($result) {
              ?><ul><?php
-              while($fc_user = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+              $sql = "SELECT fk_nicknameAdm FROM administragrupo WHERE fk_idGrupo =".$idgroup['idGrupo'];
+              $result = mysqli_query($link, $sql);
+
+              while($nicknameAdm = mysqli_fetch_array($result, MYSQLI_ASSOC)){
               ?>
                 <li>
-                  <a <?php echo 'href="home.php?nick='.$fc_user['fk_nicknameAmizade'].'';?>">
-                    <?php echo $fc_user['fk_nicknameAmizade']; ?>
+                  <a <?php echo 'href="home.php?nick='.$nicknameAdm['fk_nicknameAdm'].'';?>">
+                    <?php echo $nicknameAdm['fk_nicknameAdm']; ?>
+                  </a>  
+                  <a class="text-info" href="#">[adm]</a>
+                </li>
+              <?php
+              }
+              ?>
+              <?php
+              $sql = "SELECT fk_nickname FROM participagrupo WHERE fk_idGrupo =".$idgroup['idGrupo'];
+              $result = mysqli_query($link, $sql);
+              while($nickname = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+              ?>
+                <li>
+                  <a <?php echo 'href="home.php?nick='.$nickname['fk_nickname'].'';?>">
+                    <?php echo $nickname['fk_nickname']; ?>
                   </a>  
                   <a class="text-danger" href="#">[unfriend]</a>
                 </li>
               <?php
               }
-              ?></ul><?php
+              ?>
+              </ul><?php
             } else {
               ?>
                 <p class="text-center">No users to add!</p>

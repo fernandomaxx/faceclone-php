@@ -33,7 +33,7 @@
   $sql = " SELECT idMural FROM mural WHERE fk_idGrupo = '$idgroup'";
   $result = mysqli_query($link, $sql);
   if ($result) {
-     echo "deu merda aqui 2";
+     echo "deu merda aqui 2 fs";
    }  
   $data = mysqli_fetch_array($result);
   $id = $data['idMural'];

@@ -18,6 +18,6 @@
 	$sql = " INSERT INTO solicitagrupo(fk_nickname, fk_email, fk_idGrupo)values('$nickname','$email',$idgroup) ";
 	mysqli_query($link, $sql);
 
-	//header('Location: ../group.php?nick=');
+	header('Location: ../group.php?nick=');
 
 ?>
